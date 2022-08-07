@@ -1,6 +1,7 @@
-import { Request, response, Response } from "express";
+import { Request,  Response } from "express";
 import ContaModel from "../model/schemas/ContaModel";
-import IConta from "../interface/IConta";
+import IConta from "../interfaces/IConta";
+import MgsValidateDefault from "../services/MgsValidateDefault";
 
 class ContaController {
   public async listaContas(req: Request, res: Response) {
@@ -23,29 +24,29 @@ class ContaController {
       if (!seExisteConta) {
         return res
           .status(400)
-          .json({ situation: false, msg: "Não existe essa conta no banco" });
+          .json(new MgsValidateDefault(false, 'Não existe essa conta no banco'));
       }
       return res.status(201).json(seExisteConta);
     } catch (error) {
       console.error(error);
-      res.json("Erro de qualquer coisa");
+      res.status(400).json(new MgsValidateDefault(false, 'Houve algum erro no banco'));
     }
   }
 
   public async criar(req: Request, res: Response) {
     try {
-      const dado: IConta = req.body;
+      const dado:IConta = req.body;
       const createTable = await ContaModel.sync();
-      const conta = await ContaModel.create(dado);
+      const conta = await ContaModel.create({dado});
 
       return res.status(201).json(conta);
     } catch (error) {
       console.error(error);
-      res.json("Erro de qualquer coisa");
+      res.json(new MgsValidateDefault(false, 'Houve algum erro no sistema'));
     }
   }
 
-  public async destroy(req: Request, res: Response) {
+  public async remover(req: Request, res: Response) {
     try {
       let idConta: string = req.params.id;
 
@@ -57,21 +58,21 @@ class ContaController {
       if (!seExisteConta) {
         return res
           .status(400)
-          .json({ situation: false, msg: "Não existe essa conta no banco" });
+          .json(new MgsValidateDefault(false, 'Não existe essa conta no banco'));
       }
       const contaExcluida = await ContaModel.destroy({
         where: { id: idConta },
       });
       return res
         .status(201)
-        .json({ situation: true, msg: "Excluido com sucesso" });
+        .json(new MgsValidateDefault(true, 'Conta excluida com sucesso'));
     } catch (error) {
       console.error(error);
-      res.json("Erro de qualquer coisa");
+      res.status(400).json(new MgsValidateDefault(false, 'Houve algum erro no sistema'));
     }
   }
 
-  async update(req: Request, res: Response) {
+  async editar(req: Request, res: Response) {
     try {
       let idConta: string = req.params.id;
 
@@ -79,7 +80,7 @@ class ContaController {
       if (!seExisteConta) {
         return res
           .status(400)
-          .json({ situation: false, msg: "Não existe essa conta no banco" });
+          .json(new MgsValidateDefault(false, 'Não existe essa conta no banco'));
       }
 
       const updateConta = await ContaModel.update(req.body, {
@@ -90,7 +91,9 @@ class ContaController {
       return res.status(204).json(updateConta);
     } catch (error) {
       console.error(error);
-      res.json("Erro de qualquer coisa");
+
+      res.status(400).
+      json(new MgsValidateDefault(false, 'Houve algum erro no sistema'));
     }
   }
 }

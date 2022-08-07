@@ -1,16 +1,16 @@
 import express from 'express';
 import cors from 'cors';
-// import * as dotenv from "dotenv";
-// dotenv.config();
 
-import 'dotenv/config'
+import 'dotenv/config';
 
 
-import routers from './routers/routerController';
+import routersContas from './routers/contasRouters';
+import usuarioRouters from './routers/usuarioRouters';
+
 class App {
     
     public express:express.Application;
-    
+    public env:any;
     
     public constructor(){
         this.express = express();
@@ -27,13 +27,8 @@ class App {
     }
     
     private routers():void{
-        this.express.use(routers);
-        // this.express.get('/test', (req, res)=> {
-        //     console.info(process.env.DB_PORT);
-
-        //     res.send('Connn')
-
-        // })
+        this.express.use('/contas', routersContas);
+        this.express.use('/usuarios', usuarioRouters);
     }
 }
 

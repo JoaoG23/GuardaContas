@@ -35,9 +35,9 @@ class ContaController {
 
   public async criar(req: Request, res: Response) {
     try {
-      const dado:IConta = req.body;
+      let dado:IConta = req.body;
       const createTable = await ContaModel.sync();
-      const conta = await ContaModel.create({dado});
+      const conta = await ContaModel.create(dado);
 
       return res.status(201).json(conta);
     } catch (error) {

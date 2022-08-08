@@ -1,21 +1,24 @@
 import express from 'express';
 import cors from 'cors';
-
 import 'dotenv/config';
 
 
 import routersContas from './routers/contasRouters';
 import usuarioRouters from './routers/usuarioRouters';
+import auth from './routers/auth';
+
+
 
 class App {
     
+    public auth:any;
     public express:express.Application;
-    public env:any;
     
     public constructor(){
         this.express = express();
         this.middleware();
         this.routers();
+        this.auth = auth;
     }
     
     private middleware():void{
@@ -27,7 +30,7 @@ class App {
     }
     
     private routers():void{
-        this.express.use('/contas', routersContas);
+        this.express.use( '/contas', auth.comum, routersContas);
         this.express.use('/usuarios', usuarioRouters);
     }
 }

@@ -1,8 +1,7 @@
-import { DataTypes } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize";
 import { db } from "../database";
 
-const UsuarioModel = db.define(
-  "usuarios",
+const UsuarioModel = db.define('usuarios',
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,41 +10,49 @@ const UsuarioModel = db.define(
       primaryKey: true,
     },
     nome: {
-      type: DataTypes.STRING(45),
+      type: DataTypes.STRING(100),
       allowNull: false,
-      defaultValue: "",
+      validate:{
+        notEmpty: true
+      } 
     },
     usuario: {
-      type: DataTypes.STRING(64),
+      type: DataTypes.STRING(100),
       allowNull: false,
       unique: true,
-      defaultValue: "",
+      validate: {
+        min:4,
+        notEmpty: true
+      }
     },
     senha: {
       type: DataTypes.TEXT,
       allowNull: false,
-      defaultValue: "",
+      validate:{
+        notEmpty: true
+      } 
     },
     telefone: {
-      type: DataTypes.STRING(17),
+      type: DataTypes.STRING(70),
       allowNull: false,
-      unique: true,
-      defaultValue: "",
+      validate:{
+        notEmpty: true
+      } 
     },
     autorizado: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue:false,
     },
     fullAdmin: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue:false,
     },
   },
   {
-    freezeTableName: true,
-    tableName: "usuarios",
+    freezeTableName:true,
+    tableName:'usuarios'
   }
 );
 

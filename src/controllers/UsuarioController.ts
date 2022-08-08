@@ -1,11 +1,10 @@
 import { Request,  Response } from "express";
 import UsuarioModel from "../model/schemas/UsuarioModel";
-import IUsuario from '../interfaces/IUsuario';
-import ServiceSms from "../services/ServiceSms";
 import MgsValidateDefault from "../services/MgsValidateDefault";
 import bcrypt from "bcryptjs";
 import jwt from 'jsonwebtoken';
 
+import IUsuario from '../interfaces/IUsuario';
 class UsuarioController {
 
 
@@ -23,7 +22,7 @@ class UsuarioController {
 
     }
 
-    public async listaUm(req: Request, res: Response) {
+    public async listaUm( req: Request, res: Response ) {
         try {
           let idConta: string = req.params.id;
           const seExisteConta = await UsuarioModel.findByPk(idConta);
@@ -44,34 +43,33 @@ class UsuarioController {
 
     public async logar(req: Request, res: Response) {
         try {
-          let nomeUsuario: string = req.params.usuario;
-          const seExisteConta = await UsuarioModel.findOne({ where: { usuario:nomeUsuario  } }); 
+          let usuarioInput:string = req.body.usuario;
+          let senhaInput:string = req.body.senha;
 
-          if (!seExisteConta) {
-            return res
-              .status(400)
-              .json(new MgsValidateDefault(false, 'Não existe esse usuario no banco'));
+
+          const seExisteUsuario:any = await UsuarioModel.findOne({ where: { usuario:usuarioInput  } }); 
+
+          if (!seExisteUsuario) {
+            res
+            .status(400)
+            .json(new MgsValidateDefault(false, 'Não existe esse usuario no sistema'));
+            return;
           }
 
+          const senhaEuserMatch = bcrypt.compareSync(senhaInput,seExisteUsuario.senha);
 
-          // const usuarioEncontrado = verificarExistenciaUsuario[0];
+          if (!senhaEuserMatch) {
+            res.status(400).json(new MgsValidateDefault(false, 'Senha ou usuário estão incorretos'));
+            return;
+          }
 
-          // if (!usuarioEncontrado) {
-          //   resp.status(400).json({situation:false, msg:"Senha ou Usuario incorretos"});
-          //   return;
-          // }
+          let secret:string | any = process.env.TOKEN_SECRET;
+
+          const token = jwt.sign({id:seExisteUsuario.id , autorizado:seExisteUsuario.autorizado }, secret); 
+
+          res.header('authorization-token', token); 
+          res.json({situation:true, msg:'Logado com sucesso', nome:seExisteUsuario.nome, token:token});
     
-          // const senhaEuserMatch = bcrypt.compareSync(
-          //   senhaUsuario,
-          //   usuarioEncontrado.senha_login
-          // );
-    
-          // if (!senhaEuserMatch) {
-          //   resp.status(400).json({situation:false, msg:"Senha ou Usuario incorretos"});
-          //   return;
-          // }
-    
-          return res.status(200).json(seExisteConta);
         } catch (error) {
           console.error(error);
           res.status(400).json(new MgsValidateDefault(false, 'Houve algum erro no banco'));
@@ -97,7 +95,6 @@ class UsuarioController {
             where: { id: idUsuario },
           });
           return res
-            .status(201)
             .json(new MgsValidateDefault(true, 'Conta excluida com sucesso'));
         } catch (error) {
           console.error(error);
@@ -137,14 +134,19 @@ class UsuarioController {
     public async registrar( req:Request , res:Response ) {
     
         try {
-            const dadosUsuario:IUsuario = req.body;
+            const dadoUsuarioInput:IUsuario = {
+              nome:req.body.nome,
+              usuario:req.body.usuario,
+              senha:bcrypt.hashSync(req.body.senha),
+              telefone:req.body.telefone,
+              autorizado:req.body.autorizado,
+              fullAdmin:req.body.fullAdmin,
+            };
 
             const createTable = await UsuarioModel.sync();
-            const conta = await UsuarioModel.create({dadosUsuario});
-            await UsuarioModel.sync();
-             await UsuarioModel.create({dadosUsuario});
-            res.json(new MgsValidateDefault(true,'Usuário criado com sucesso!'));
-            res.json(dadosUsuario);
+            const conta = await UsuarioModel.create(dadoUsuarioInput);
+
+            res.json(conta);
         } catch (error) {
             res.status(400).json(error)
             console.error(error);

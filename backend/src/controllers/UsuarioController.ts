@@ -39,6 +39,7 @@ class UsuarioController {
         }
       }
 
+      
 
 
     public async logar(req: Request, res: Response) {

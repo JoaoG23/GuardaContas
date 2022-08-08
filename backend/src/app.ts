@@ -11,7 +11,7 @@ import auth from './routers/auth';
 
 class App {
     
-    public auth:any;
+    public auth:object;
     public express:express.Application;
     
     public constructor(){

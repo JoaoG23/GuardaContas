@@ -8,7 +8,7 @@ routers.get('/:id', UsuarioController.listaUm );
 routers.post('/', UsuarioController.registrar );
 routers.post('/logar', UsuarioController.logar );
 
-routers.put('/', UsuarioController.editar );
+routers.put('/:id', UsuarioController.editar );
 
 routers.delete('/:id', UsuarioController.remover );
 routers.delete('/', UsuarioController.remover );

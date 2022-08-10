@@ -5,7 +5,7 @@ import 'dotenv/config';
 
 import routersContas from './routers/contasRouters';
 import usuarioRouters from './routers/usuarioRouters';
-import auth from './routers/auth';
+import auth from './routers/Auth';
 
 
 
@@ -25,12 +25,9 @@ class App {
         this.express.use(express.json())
         this.express.use(cors())
     }
-
-    private database():void{
-    }
     
     private routers():void{
-        this.express.use( '/contas', auth.comum, routersContas);
+        this.express.use( '/contas', auth.comum ,routersContas);
         this.express.use('/usuarios', usuarioRouters);
     }
 }

@@ -33,13 +33,19 @@ class ContaController {
     }
   }
 
-  public async criar(req: Request, res: Response) {
+  public async criar(req: Request, res: Response){
     try {
-      let dado:IConta = req.body;
       const createTable = await ContaModel.sync();
-      const conta = await ContaModel.create(dado);
+      const contaCriada = await ContaModel.create(req.body) as IConta;
+      // const conta = await ContaModel.create({
+      //   tipo: req.body.tipo,
+      //   login: req.body.login,
+      //   senha: req.body.senha,
+      //   instituicao: req.body.instituicao,
+      //   obs: req.body.obs,
+      // });
 
-      return res.status(201).json(conta);
+      return res.status(201).json(contaCriada);
     } catch (error) {
       console.error(error);
       res.json(new MgsValidateDefault(false, 'Houve algum erro no sistema'));
@@ -83,12 +89,12 @@ class ContaController {
           .json(new MgsValidateDefault(false, 'Não existe essa conta no banco'));
       }
 
-      const updateConta = await ContaModel.update(req.body, {
+      const updateConta = await ContaModel.update(req.body as IConta, {
         returning: true,
         where: { id: idConta },
       });
 
-      return res.status(204).json(updateConta);
+      return res.status(204).json(new MgsValidateDefault(true, 'Conta atualizada com sucesso'));
     } catch (error) {
       console.error(error);
 

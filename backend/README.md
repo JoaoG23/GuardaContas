@@ -51,6 +51,8 @@ I always used the notpad of the windows for save username and password, but few 
 
 ### How to use
 
+#### Routers of accounts
+
 It will have on 5 routers …
 
 1. List all 
@@ -58,6 +60,16 @@ It will have on 5 routers …
 3. Make Account
 4. Update Account
 5. Delete Account
+
+It add more routers
+
+#### Routers of user of the system
+
+1. List all 
+2. List One
+3. Register users
+4. Update users
+5. Delete users
 
 See you more about API-Docs
 <h3><a href='https://guardaroupacontas-api-docs.netlify.app'> 👉 Click here more docs</a><h1>

@@ -2,11 +2,6 @@ import { Request, Response, NextFunction } from "express";
 
 import jwt from "jsonwebtoken";
 
-
-// interface TokenType extends Request {
-//   usuarioToken:string;
-// }
-
 class Auth {
   public secret: any = process.env.TOKEN_SECRET;
 
@@ -33,11 +28,8 @@ class Auth {
   //         }
   //     }
 
-
-
- async comum(req: Request, res: Response, next: NextFunction) {
+  comum(req: Request, res: Response, next: NextFunction) {
     const secret: any = process.env.TOKEN_SECRET;
-
 
     const token = req.header("authorization-token");
     if (!token)
@@ -45,9 +37,9 @@ class Auth {
         .status(401)
         .send({ situation: false, msg: "Você ainda não está logado.." });
     try {
-      await jwt.verify(token, secret);
+      const verificaUsuarioToken = jwt.verify(token, secret);
 
-      
+      req.usuarioToken = verificaUsuarioToken;
       next();
     } catch (error) {
       res.status(401).json(error);

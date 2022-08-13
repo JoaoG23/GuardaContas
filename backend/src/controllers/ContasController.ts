@@ -122,7 +122,6 @@ class ContaController {
         where: { id: idConta },
       });
       return res
-        .status(201)
         .json(new MgsValidateDefault(true, "Conta excluida com sucesso"));
     } catch (error) {
       console.error(error);
@@ -151,7 +150,6 @@ class ContaController {
       });
 
       return res
-        .status(204)
         .json(new MgsValidateDefault(true, "Conta atualizada com sucesso"));
     } catch (error) {
       console.error(error);

@@ -25,7 +25,7 @@ class App {
     }
     
     private routers():void{
-        this.express.use( '/contas' , contasRouters);
+        this.express.use( '/contas' , auth.comum, contasRouters);
         this.express.use('/usuarios', usuarioRouters);
         this.express.use('/estatistica', estatisticaRputers);
     }

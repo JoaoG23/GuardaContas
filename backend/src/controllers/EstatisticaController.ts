@@ -5,11 +5,10 @@ import MgsValidateDefault from "../services/MgsValidateDefault";
 
 class EstatisticaController {
 
-  public async controllerEmConstrucaoTest(req: Request, res: Response) {
+  public async contarQuantasContasRegistrada(req: Request, res: Response) {
     try {
-      let tipo = req.params.tipo;
 
-      const listaContaTipo = await ContaModel.findAll({ where: { tipo: tipo } });
+      const listaContaTipo = await ContaModel.count()
         if (listaContaTipo === null) {
           res.status(400).json(new MgsValidateDefault(false, 'Nenhuma conta desse tipo foi encontrada'));
         }

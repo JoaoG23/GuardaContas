@@ -3,6 +3,6 @@ import EstatisticaController from '../controllers/EstatisticaController';
 
 const routers = Router();
 
-routers.get('/:tipo', EstatisticaController.controllerEmConstrucaoTest );
+routers.get('/contagem', EstatisticaController.contarQuantasContasRegistrada );
 
 export default routers;

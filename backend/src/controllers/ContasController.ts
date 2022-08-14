@@ -95,7 +95,7 @@ class ContaController {
       const createTable = await ContaModel.sync();
       const contaCriada = (await ContaModel.create(req.body)) as IConta;
 
-      return res.status(201).json(contaCriada);
+      return res.status(201).json(new MgsValidateDefault(true, 'Inserido com sucesso'));
     } catch (error) {
       console.error(error);
       res.json(new MgsValidateDefault(false, "Houve algum erro no sistema"));

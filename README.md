@@ -1,7 +1,4 @@
-# Sistema Guarda Contas
-
-<!-- ![logoGuardaRoupaContas.svg](/assets/logoGuardaRoupaContas.svg) -->
-<img src="./assets/logoGuardaRoupaContas.svg" align='center' width="150px;" alt=""/>
+# Sistema Guarda Contas 🛡️ <img src="./assets/logoGuardaRoupaContas.svg" align=right width="200px;" alt=""/>
 
 One small system for help me on the manager my username and password ….
 
@@ -18,14 +15,14 @@ One small system for help me on the manager my username and password ….
 7. Author
 ****
 
-### Introdution
+### Introdution 🚪
 
 <img src="https://media2.giphy.com/media/dQpUkK59l5Imxsh8jN/giphy.gif?cid=ecf05e47ok7gh6dhk7rn9e88kyz32x44l96gx8kuacipzq1u&rid=giphy.gif&ct=g" width="500px;" alt=""/>
 
 I always used the notpad of the windows for save username and password, but few days ago, i’m noticed my list to grow up a lot and it had stayed more confused for me, then i’m create on system for manager better my accounts, this is purpose of CRUD.
 **The app was created for especially to run in the desktop, all right!?😉💻**
 
-### Techs e Requirements
+### Techs e Requirements 🦾🪛
 ---
 
 ## Frontend 📺
@@ -66,7 +63,7 @@ I always used the notpad of the windows for save username and password, but few 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" width="80px;" alt=""/>
 
 
-### How to install
+### How to install 🪛
 
 ### Attention 🧨
 
@@ -80,7 +77,7 @@ I always used the notpad of the windows for save username and password, but few 
 2. follow the path until dist/server.js
 3. Typing node server.js and Buuuuuww…  *Workinng* for turn on API backend
 
-### How to use
+### How to use 🙇‍♂️
 
 
 1. The aplications divide in the 3 parts:
@@ -129,11 +126,11 @@ It add more routers
 See you more about API-Docs
 <h3><a href='https://guardacontasapi-docs.netlify.app'> 👉 Click here more docs</a><h1>
 
-### Final Remarks
+### Final Remarks 😭
 
 Well, I think the CRUD is a little small, more is so good, because was experience of typescript with back-end, and wasn't too cool 😅,it was worth it. Thanks for all and Bear Hug 🐻**Bye...**  👋🏾
 
-### Author
+### Author 🧑‍🔧
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/80895578?v=4" width="100px;" alt=""/>
  <br />
  <sub><b>Joao Guilherme</b></sub></a> <a href="https://github.com/JoaoG23/">🚀</a>

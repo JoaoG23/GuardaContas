@@ -23,7 +23,6 @@ I always used the notpad of the windows for save username and password, but few 
 **The app was created for especially to run in the desktop, all right!?😉💻**
 
 ### Techs e Requirements 🦾🪛
----
 
 #### Frontend 📺
 **Reactjs**
@@ -69,7 +68,6 @@ I always used the notpad of the windows for save username and password, but few 
 
 1. Have **nodejs**, **postgres** installed en pc okay.
 
----
 <img src="/assets/fluxofront.png" align='center' width="500px;" alt=""/>
 
 1. Clone the project

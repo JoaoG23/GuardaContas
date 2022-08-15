@@ -71,8 +71,7 @@ I always used the notpad of the windows for save username and password, but few 
 1. Have **nodejs**, **postgres** installed en pc okay.
 
 ---
-
-![logoGuardaRoupaContas.svg](/assets/fluxofront.png)
+<img src="/assets/fluxofront.png" width="500px;" alt=""/>
 
 1. Clone the project
 1. Open directory backend.

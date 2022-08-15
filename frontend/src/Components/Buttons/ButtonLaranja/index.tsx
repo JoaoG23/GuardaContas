@@ -1,12 +1,12 @@
-import { PropsWithChildren } from "react";
 import { StyleDefault } from '../styles';
 
 
 type Propriedades = {
-  onClick?:(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  children?:JSX.Element[] | JSX.Element |  string | any; 
+  onClick?:any
 };
 
-const ButtonLaranja = ({ onClick , children }:PropsWithChildren<Propriedades>) => {
+const ButtonLaranja:React.FC<Propriedades> = ({ onClick , children }) => {
   return <StyleDefault onClick={onClick}>{children}</StyleDefault>;
 };
 

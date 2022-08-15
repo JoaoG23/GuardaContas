@@ -19,4 +19,11 @@ export const ContainerSmall = styled.section`
   li{
     list-style-type: none;
   }
+  li:nth-of-type(2) {
+  color: lime;
+}
+
+li:nth-of-type(3) {
+  color: red;
+}
 `;

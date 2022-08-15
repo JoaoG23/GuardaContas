@@ -8,6 +8,11 @@ export const StyleDefault = styled.button`
   color: var(--branco);
   border-radius: 7px;
   padding:1em;
+  a{
+    text-decoration: none;
+    color:black;
+    opacity: 0.5;
+  }
   
   :hover {
     transition: 0.5s ease-in;

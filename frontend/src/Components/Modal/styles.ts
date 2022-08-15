@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ModalBackgroundStyle = styled.div`
-  display: ${props => (props.prefix ? 'flex':'none')};
+  display: flex;
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 105vh;
   background-color:var(--sombraescura);
 
   z-index: 1;
@@ -12,7 +12,7 @@ export const ModalBackgroundStyle = styled.div`
   align-items: center;
   justify-content: center;
 
-  animation: entradaSuave 0.5s forwards;
+  animation: entradaSuave 0.2s forwards;
 
   @keyframes entradaSuave {
     0% {

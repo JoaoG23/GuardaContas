@@ -9,7 +9,7 @@ type TChildens = {
 }
 
 const Input:React.FC<TChildens> = ({onChange,type,placeholder}) => {
-    return(<StylesDefault onChange={onChange} type={type} placeholder={placeholder}>
+    return(<StylesDefault  onChange={onChange} type={type} placeholder={placeholder}>
         {/* {children} */}
     </StylesDefault>)
 }

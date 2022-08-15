@@ -1,6 +1,6 @@
 import { ContainerButtonsStyle } from "./styles";
 type Propriedades = {
-  children: any;
+  children?: JSX.Element[] | JSX.Element;
 };
 
 function ButtonContainer(props: Propriedades) {

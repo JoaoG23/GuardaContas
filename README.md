@@ -1,10 +1,10 @@
-# GuardaRoupaDeContasAPI
+# Sistema Guarda Contas
 
 ![logoGuardaRoupaContas.svg](/assets/logoGuardaRoupaContas.svg)
 
 One small system for help me on the manager my username and password ….
 
-**🚧Under construction, only has API 👷🚧**
+<img src="assets\apres.gif" width=500px alt=""/>
 
 ### Indice 🗂️
 
@@ -26,6 +26,27 @@ I always used the notpad of the windows for save username and password, but few 
 ### Techs e Requirements
 ---
 
+## Frontend 📺
+**Reactjs**
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="80px;" alt=""/>
+
+**Styled-Components**
+
+<img src="assets\styledCompentslogo.png" width="80px;" alt=""/>
+
+**Electron**
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg" width="80px;" alt=""/>
+
+
+
+
+
+## Backend 👥
+
+
+
 **Nodejs**
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg" width="80px;" alt=""/>
@@ -45,12 +66,45 @@ I always used the notpad of the windows for save username and password, but few 
 
 ### How to install
 
+### Attention 🧨
+
+1. Have **nodejs**, **postgres** installed en pc okay.
+
+---
+
+![logoGuardaRoupaContas.svg](/assets/fluxofront.png)
+
 1. Clone the project
-2. follow the path until dist/js/server.js
-3. Typing node server.js and Buuuuuww…  *Workinng*
+1. Open directory backend.
+2. follow the path until dist/server.js
+3. Typing node server.js and Buuuuuww…  *Workinng* for turn on API backend
 
 ### How to use
 
+
+1. The aplications divide in the 3 parts:
+***Frontend web, Backend, Frontend Desktop*** 
+
+**For use frontend**
+For use frontend web just to start app, how to tutorial above, open browser and type http://localhost:3210
+
+<img src="assets\apresweb.gif" width=500px alt=""/>
+
+**For Desktop**
+Open the folder frontend-desktop/dist
+
+execulte ***GuardaContas.exe***
+install in the your pc with backend started,
+now just Buuuuuww…  *Workinng* ⚙️⚙️.
+
+
+### API backend pure 
+
+Here i speak about API and your routes
+
+#### Router of statistics 
+
+1. Count Quantity of accounts
 #### Routers of accounts
 
 It will have on 5 routers …
@@ -72,11 +126,11 @@ It add more routers
 5. Delete users
 
 See you more about API-Docs
-<h3><a href='https://guardaroupacontas-api-docs.netlify.app'> 👉 Click here more docs</a><h1>
+<h3><a href='https://guardacontasapi-docs.netlify.app'> 👉 Click here more docs</a><h1>
 
 ### Final Remarks
 
-Well, I think the CRUD is a little small, more is so good, because was experience of typescript with back-end, and wasn't too cool 😅,it was worth it. Thanks for all and Bear Hug 🐻**! Bye**  👋🏾
+Well, I think the CRUD is a little small, more is so good, because was experience of typescript with back-end, and wasn't too cool 😅,it was worth it. Thanks for all and Bear Hug 🐻**Bye...**  👋🏾
 
 ### Author
 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/80895578?v=4" width="100px;" alt=""/>

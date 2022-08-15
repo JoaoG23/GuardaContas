@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import UsuarioModel from "../model/schemas/UsuarioModel";
-import MgsValidateDefault from "../services/MgsValidateDefault";
+import MgsValidateDefault from "../services/MsgValidateDefault";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 

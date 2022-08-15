@@ -1,7 +1,7 @@
 import { Request,  Response } from "express";
 import ContaModel from "../model/schemas/ContaModel";
 import IConta from "../interfaces/IConta";
-import MgsValidateDefault from "../services/MgsValidateDefault";
+import MgsValidateDefault from "../services/MsgValidateDefault";
 
 class EstatisticaController {
 

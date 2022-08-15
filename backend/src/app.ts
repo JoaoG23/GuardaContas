@@ -5,9 +5,11 @@ import 'dotenv/config';
 
 import contasRouters from './routers/contasRouters';
 import usuarioRouters from './routers/usuarioRouters';
-import estatisticaRputers from './routers/EstatisticaRouters';
+import estatisticaRouters from './routers/EstatisticaRouters';
+import inicialRoutes from './routers/InicialRouters';
 
 import auth from './routers/Auth';
+import path from 'path';
 
 class App {
     
@@ -26,8 +28,10 @@ class App {
     
     private routers():void{
         this.express.use( '/contas' , auth.comum, contasRouters);
-        this.express.use('/usuarios', usuarioRouters);
-        this.express.use('/estatistica', estatisticaRputers);
+        this.express.use('/usuarios',auth.comum, usuarioRouters);
+        this.express.use('/estatistica', auth.comum,estatisticaRouters);
+        this.express.use('/auth', inicialRoutes);
+        this.express.use('/', express.static(path.join(__dirname,'view')))
     }
 }
 

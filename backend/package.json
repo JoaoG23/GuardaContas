@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prod":"node dist/server.js",
+    "build": "tsc",
     "dev": "npx nodemon --exec ts-node --files src/server.ts",
     "start": "ts-node ./src/server.ts"
   },

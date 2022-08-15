@@ -1,0 +1,24 @@
+{
+  "title":"Sistema Guarda Contas",
+  "name": "GuardaContas",
+  "version": "1.0.0",
+  "description": "Sistema Guarda Contas",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -c.mac.identity=null"
+  },
+  "author": "Desenvolvedor Junior João Guilhrme",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^20.0.1",
+    "electron-builder": "^23.3.3"
+  },
+  "build": {
+    "appId": "com.guardacontas.guard",
+    "win": {
+      "icon": "./assets/logo.png"
+    }
+  }
+}

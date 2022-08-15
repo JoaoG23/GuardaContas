@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import ContaModel from "../model/schemas/ContaModel";
 import IConta from "../interfaces/IConta";
-import MgsValidateDefault from "../services/MgsValidateDefault";
+import MsgValidateDefault from "../services/MsgValidateDefault";
+import MgsNoContent from "../services/MsgNoContent";
 
 class ContaController {
   public async listaContas(req: Request, res: Response) {
@@ -9,7 +10,7 @@ class ContaController {
       const contas = await ContaModel.findAll();
       return contas.length > 0
         ? res.status(200).json(contas)
-        : res.status(204).send();
+        : res.status(200).json([new MgsNoContent(0,'Sem tipo','Nenhum dados','Nenhum dados','Sem instituicao', 'Nem um dados')]);
     } catch (error) {
       res.send(error);
       console.error(error);
@@ -25,7 +26,7 @@ class ContaController {
         return res
           .status(400)
           .json(
-            new MgsValidateDefault(false, "Não existe essa conta no banco")
+            new MsgValidateDefault(false, "Não existe essa conta no banco")
           );
       }
       return res.status(201).json(seExisteConta);
@@ -33,7 +34,7 @@ class ContaController {
       console.error(error);
       res
         .status(400)
-        .json(new MgsValidateDefault(false, "Houve algum erro no banco"));
+        .json(new MsgValidateDefault(false, "Houve algum erro no banco"));
     }
   }
 
@@ -47,7 +48,7 @@ class ContaController {
         return res
           .status(400)
           .json(
-            new MgsValidateDefault(
+            new MsgValidateDefault(
               false,
               "Nenhuma conta desse tipo foi encontrada"
             )
@@ -59,7 +60,7 @@ class ContaController {
       console.error(error);
       res
         .status(400)
-        .json(new MgsValidateDefault(false, "Houve algum erro no banco"));
+        .json(new MsgValidateDefault(false, "Houve algum erro no banco"));
     }
   }
 
@@ -74,7 +75,7 @@ class ContaController {
         return res
           .status(400)
           .json(
-            new MgsValidateDefault(
+            new MsgValidateDefault(
               false,
               "Nenhuma conta dessa instituicao foi encontrada"
             )
@@ -86,7 +87,7 @@ class ContaController {
       console.error(error);
       res
         .status(400)
-        .json(new MgsValidateDefault(false, "Houve algum erro no banco"));
+        .json(new MsgValidateDefault(false, "Houve algum erro no banco"));
     }
   }
 
@@ -95,10 +96,10 @@ class ContaController {
       const createTable = await ContaModel.sync();
       const contaCriada = (await ContaModel.create(req.body)) as IConta;
 
-      return res.status(201).json(new MgsValidateDefault(true, 'Inserido com sucesso'));
+      return res.status(201).json(new MsgValidateDefault(true, 'Inserido com sucesso'));
     } catch (error) {
       console.error(error);
-      res.json(new MgsValidateDefault(false, "Houve algum erro no sistema"));
+      res.json(new MsgValidateDefault(false, "Houve algum erro no sistema"));
     }
   }
 
@@ -115,19 +116,19 @@ class ContaController {
         return res
           .status(400)
           .json(
-            new MgsValidateDefault(false, "Não existe essa conta no banco")
+            new MsgValidateDefault(false, "Não existe essa conta no banco")
           );
       }
       const contaExcluida = await ContaModel.destroy({
         where: { id: idConta },
       });
       return res
-        .json(new MgsValidateDefault(true, "Conta excluida com sucesso"));
+        .json(new MsgValidateDefault(true, "Conta excluida com sucesso"));
     } catch (error) {
       console.error(error);
       res
         .status(400)
-        .json(new MgsValidateDefault(false, "Houve algum erro no sistema"));
+        .json(new MsgValidateDefault(false, "Houve algum erro no sistema"));
     }
   }
 
@@ -140,7 +141,7 @@ class ContaController {
         return res
           .status(400)
           .json(
-            new MgsValidateDefault(false, "Não existe essa conta no banco")
+            new MsgValidateDefault(false, "Não existe essa conta no banco")
           );
       }
 
@@ -150,13 +151,13 @@ class ContaController {
       });
 
       return res
-        .json(new MgsValidateDefault(true, "Conta atualizada com sucesso"));
+        .json(new MsgValidateDefault(true, "Conta atualizada com sucesso"));
     } catch (error) {
       console.error(error);
 
       res
         .status(400)
-        .json(new MgsValidateDefault(false, "Houve algum erro no sistema"));
+        .json(new MsgValidateDefault(false, "Houve algum erro no sistema"));
     }
   }
 }

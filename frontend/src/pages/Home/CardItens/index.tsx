@@ -1,24 +1,37 @@
-import ButtonLaranja from "../../../Components/Buttons/ButtonLaranja";
-import ButtonAzul from "../../../Components/Buttons/ButtonAzul";
-import { ContainerSmall } from "./styles";
 
-const CardItens = () => {
+import { ContainerSmall } from "./styles";
+import { useFetch } from '../../../Hooks/useFetch';
+
+
+type Conta = {
+  id?: number;
+  tipo?: string;
+  login?: string;
+  senha?: string;
+  instituicao?: string;
+  obs?: string;
+  children?:JSX.Element | JSX.Element[];
+};
+
+const CardItens:React.FC<Conta> = ({
+  tipo,
+  login,
+  senha,
+  instituicao,
+  obs,
+  children
+}) => {
   return (
-        // <ContainerCards>
-          <ContainerSmall>
+          <ContainerSmall >
             <ul>
-              <li>Tipo</li>
-              <li>Login</li>
-              <li>Senha</li>
-              <li>Instituicao</li>
-              <li>Obs:</li>
+              <li>Tipo : {tipo}</li>
+              <li>Login : {login}</li>
+              <li>Senha : {senha}</li>
+              <li>Instituicao : {instituicao}</li>
+              <li>Obs: {obs}</li>
             </ul>
-            <div>
-              <ButtonAzul>Editar</ButtonAzul>
-              <ButtonLaranja>Remove</ButtonLaranja>
-            </div>
+            {children}
           </ContainerSmall>
-        // </ContainerCards>
   );
 };
 

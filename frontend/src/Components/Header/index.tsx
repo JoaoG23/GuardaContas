@@ -1,15 +1,22 @@
 
 import { StyleDefault } from "./styles";
+import React from "react";
+import { Link } from "react-router-dom";
+import { navList } from './Data/NavList';
 
-type TChildens = {
-    children?:JSX.Element[] | JSX.Element;
-}
+const Header: React.FC = () => {
 
-const Header:React.FC<TChildens> = ({children}) => {
-    return(<StyleDefault>
-        {children}
-    </StyleDefault>)
-}
+
+  return (
+    <StyleDefault>
+      {navList.map(item => <Link key={item.id} to={item.link}>
+        <img src={item.iconsPath} alt={item.nome}></img>
+        <p>
+        {item.nome}
+        </p>
+        </Link>)}
+    </StyleDefault>
+  );
+};
 
 export default Header;
-

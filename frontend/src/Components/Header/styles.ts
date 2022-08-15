@@ -14,6 +14,19 @@ export const StyleDefault = styled.header`
     position: fixed;
     bottom:0vh;
     
+    a{
+        opacity: 0.7;
+        text-decoration: none;
+        color:black;
+        text-align: center;
+    }
+    a:hover{
+        transition: 1s;
+        background-color: var(--cinza);
+        border-radius: 6px;
+        padding: 5px;
+
+    }
     
     @media screen and (max-width:600px) {
         

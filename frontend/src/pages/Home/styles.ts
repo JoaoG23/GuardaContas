@@ -4,7 +4,7 @@ export const Container = styled.main`
     color:var(--cinza);
     
     /* width: 100vw; */
-    height: 90vh;
+    height: 91vh;
 
     border: nome;
     
@@ -53,5 +53,7 @@ export const ContainerCards = styled(ContainerItens)`
   height: 70vh;
   overflow-y: scroll;
   padding: 1em;
+
+  
   `;
 

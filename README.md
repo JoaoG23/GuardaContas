@@ -25,7 +25,7 @@ I always used the notpad of the windows for save username and password, but few 
 ### Techs e Requirements 🦾🪛
 ---
 
-## Frontend 📺
+#### Frontend 📺
 **Reactjs**
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="80px;" alt=""/>
@@ -42,7 +42,7 @@ I always used the notpad of the windows for save username and password, but few 
 
 
 
-## Backend 👥
+#### Backend 👥
 
 
 

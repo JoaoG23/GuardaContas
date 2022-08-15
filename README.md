@@ -1,10 +1,11 @@
 # Sistema Guarda Contas
 
-![logoGuardaRoupaContas.svg](/assets/logoGuardaRoupaContas.svg)
+<!-- ![logoGuardaRoupaContas.svg](/assets/logoGuardaRoupaContas.svg) -->
+<img src="./assets/logoGuardaRoupaContas.svg" align='center' width="150px;" alt=""/>
 
 One small system for help me on the manager my username and password ….
 
-<img src="assets\apres.gif" width=500px alt=""/>
+<img src="assets\apres.gif" align='center' width=500px alt=""/>
 
 ### Indice 🗂️
 
@@ -21,7 +22,8 @@ One small system for help me on the manager my username and password ….
 
 <img src="https://media2.giphy.com/media/dQpUkK59l5Imxsh8jN/giphy.gif?cid=ecf05e47ok7gh6dhk7rn9e88kyz32x44l96gx8kuacipzq1u&rid=giphy.gif&ct=g" width="500px;" alt=""/>
 
-I always used the notpad of the windows for save username and password, but few days ago, i’m noticed my list to grow up a lot and it had stayed more confused for me, then i’m create on system for manager better my accounts, this is purpose of CRUD. 
+I always used the notpad of the windows for save username and password, but few days ago, i’m noticed my list to grow up a lot and it had stayed more confused for me, then i’m create on system for manager better my accounts, this is purpose of CRUD.
+**The app was created for especially to run in the desktop, all right!?😉💻**
 
 ### Techs e Requirements
 ---
@@ -71,7 +73,7 @@ I always used the notpad of the windows for save username and password, but few 
 1. Have **nodejs**, **postgres** installed en pc okay.
 
 ---
-<img src="/assets/fluxofront.png" width="500px;" alt=""/>
+<img src="/assets/fluxofront.png" align='center' width="500px;" alt=""/>
 
 1. Clone the project
 1. Open directory backend.

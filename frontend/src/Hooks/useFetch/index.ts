@@ -10,7 +10,7 @@ const api = axios.create({
 
 
 export const useFetch = <T = unknown>(
-//   url: string,
+  // url: string,
   options: AxiosRequestConfig 
 ) => {
   const [dados, setDados] = useState<T | null>(null);

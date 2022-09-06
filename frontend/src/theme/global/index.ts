@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
         monospace;
     }
 
-    *::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 15px;
   border-radius: 10px;
 }

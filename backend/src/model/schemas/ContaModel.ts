@@ -36,6 +36,11 @@ const ContaModel = db.define('contas',
       allowNull: false,
       defaultValue: "",
     },
+    obs: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: "",
+    },
   },
   {
     freezeTableName:true,
